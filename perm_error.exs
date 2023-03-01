@@ -2,7 +2,6 @@ vol_dir = System.get_env("VOL_DIR") || "./"
 
 Application.put_env(:mnesia, :dir, to_charlist(vol_dir))
 
-
 :ok = Application.start(:mnesia)
 
 dbg(:mnesia.change_table_copy_type(:schema, node(), :disc_copies))
