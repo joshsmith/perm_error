@@ -1,0 +1,5 @@
+app = "perm-error"
+
+[mounts]
+source = "data"
+destination = "/data"
