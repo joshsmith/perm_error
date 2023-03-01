@@ -6,8 +6,23 @@ ARG BUILDER_IMAGE="hexpm/elixir:${ELIXIR_VERSION}-erlang-${OTP_VERSION}-debian-$
 
 FROM ${BUILDER_IMAGE}
 
-USER nobody
-COPY perm_error.exs /
-COPY init.sh /
+WORKDIR /app
 
-CMD ["/init.sh"]
+RUN mkdir -p /nonexistent
+RUN chown nobody /app
+RUN chown nobody /nonexistent
+USER nobody
+
+RUN mix local.hex --force && \
+    mix local.rebar --force
+
+COPY mix.exs mix.lock ./
+RUN mix deps.get
+RUN mix deps.compile
+
+COPY config ./config
+COPY lib ./lib
+COPY perm_error.exs init.sh ./
+RUN mix compile
+
+CMD ["/app/init.sh"]

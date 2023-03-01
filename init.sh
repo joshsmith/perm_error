@@ -2,7 +2,7 @@
 
 echo "$0 running as '$(whoami)'"
 
-VOL_DIR="/data" elixir perm_error.exs
+VOL_DIR="/data" mix run perm_error.exs
 
 if touch /data/file; then
 	echo "/data/file created or updated successfully"

@@ -2,4 +2,4 @@ app = "perm-error"
 
 [mounts]
 source = "data"
-destination = "/data"
+  destination = "/data"
