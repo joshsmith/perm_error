@@ -1,5 +1,5 @@
 app = "perm-error"
 
 [mounts]
-source = "data"
-  destination = "/data"
+destination = "/mnesia"
+source = "mnesia"
