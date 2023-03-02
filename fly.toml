@@ -1,4 +1,4 @@
-app = "perm-error"
+app = "joshsmith-perm-error"
 
 [mounts]
 destination = "/mnesia"
