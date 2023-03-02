@@ -2,20 +2,20 @@
 
 echo "$0 running as '$(whoami)'"
 
-VOL_DIR="/data" mix run perm_error.exs
+VOL_DIR="/mnesia" mix run perm_error.exs
 
-if touch /data/file; then
-	echo "/data/file created or updated successfully"
+if touch /mnesia/file; then
+	echo "/mnesia/file created or updated successfully"
 else
-	echo "Error creating /data/file"
+	echo "Error creating /mnesia/file"
 fi
 
 # try creating subdirs
-mkdir -p /data/a/b/c || echo "ERROR"
-touch /data/a/b/c/d || echo "ERROR"
+mkdir -p /mnesia/a/b/c || echo "ERROR"
+touch /mnesia/a/b/c/d || echo "ERROR"
 
 # List files with its permissions
-find /data -exec ls -ld {} \;
+find /mnesia -exec ls -ld {} \;
 
 sleep inf
 

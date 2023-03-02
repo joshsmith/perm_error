@@ -2,7 +2,7 @@
 
 ```
 fly apps create nobodyapp
-fly vol create data
+fly vol create mnesia
 fly deploy
 ```
 
